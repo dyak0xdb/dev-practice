@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  padding: 40px;
+}
+
+form {
+  background: #fff;
+  padding: 15px;
+  max-width: 400px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+input {
+  width: 75%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+#comments {
+  max-width: 400px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+#comments p {
+  margin: 5px 0;
+  padding: 6px;
+  background: #f1f1f1;
+  border-radius: 3px;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- home.html -->
+<form onsubmit="addComment(event)">
+  <input id="c" placeholder="comment">
+  <button>Send</button>
+</form>
+<div id="comments"></div>
+
+<script>
+const commentsDiv = document.getElementById("comments");
+
+
+const savedComments = JSON.parse(localStorage.getItem("comments") || "[]");
+savedComments.forEach(c => {
+  commentsDiv.innerHTML += "<p>" + c + "</p>";
+});
+
+function addComment(e) {
+  e.preventDefault();
+  const input = document.getElementById("c");
+  commentsDiv.innerHTML += "<p>" + input.value + "</p>";
+  
+
+  savedComments.push(input.value);
+  localStorage.setItem("comments", JSON.stringify(savedComments));
+  
+  input.value = "";
+}
+</script>
+
+
+</body>
+</html>
