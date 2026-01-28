@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        #comments-box {
+            width: 80%;
+            max-width: 600px;
+            height: 300px;
+            border: 1px solid #333;
+            padding: 10px;
+            overflow-y: auto; 
+            background-color: #f9f9f9;
+            margin-top: 20px;
+        }
+
+        #comments-box p {
+            background-color: #e0e0e0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Admin Dashboard</h1>
+
+    <div id="comments-box"></div>
+
+    <script>
+
+function myGreeting() {
+    console.log("admin dashboard loaded");
+}
+setTimeout(myGreeting, 1000);
+
+if (!document.cookie.includes("role=NGRtaW4=")) {
+    alert("get fucking out :)");
+    window.location.href = "/login.html";
+}
+        const commentsDiv = document.getElementById("comments-box");
+        const savedComments = JSON.parse(localStorage.getItem("comments") || "[]");
+        savedComments.forEach(c => {
+            const p = document.createElement("p");
+            p.innerHTML = c; 
+            commentsDiv.appendChild(p);
+        });
+    </script>
+</body>
+</html>
+
