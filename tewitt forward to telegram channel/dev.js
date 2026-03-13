@@ -5,11 +5,11 @@ const TelegramBot = require("node-telegram-bot-api");
 const parser = new Parser();
 const file = "lastTweet.txt";
 
-const TOKEN = "8678044978:AAHlqXdP7hD3mcgaQMTq90FiUpVnfYIAQdI";
+const TOKEN = "Bot_Token";
 const bot = new TelegramBot(TOKEN, {
     polling: false
 });
-const channel = "@IRBreakingNewss";
+const channel = "@Chanel_Name";
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
