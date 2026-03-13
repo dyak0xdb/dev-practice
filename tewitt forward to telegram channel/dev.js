@@ -5,8 +5,8 @@ const TelegramBot = require("node-telegram-bot-api");
 const parser = new Parser();
 const file = "lastTweet.txt";
 
-const bot = new TelegramBot("8678044978:AAHlqXdP7hD3mcgaQMTq90FiUpVnfYIAQdI", { polling: false });
-const channel = "@zj_news"; 
+const bot = new TelegramBot("Bot_Token", { polling: false });
+const channel = "@Channel_Name"; 
 
 async function run() {
   try {
@@ -29,8 +29,8 @@ async function run() {
 
 for (const tweet of newTweets) {
   const now = new Date();
-  const text = `${tweet.title}\n`;
-  await bot.sendMessage(channel, text);
+  const text = `${tweet.title}\n<a href="${tweet.link}">X</a>`;
+  await bot.sendMessage(channel, text, { parse_mode: "HTML", disable_web_page_preview: true });
 }
 console.log("Number of tweets:", feed.items.length);
 
