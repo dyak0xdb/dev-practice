@@ -15,7 +15,7 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function run() {
     try {
-        const feed = await parser.parseURL("https://nitter.net/IranIntlbrk/rss");
+        const feed = await parser.parseURL("https://example.com");
 
         if (!feed.items || feed.items.length === 0) {
             console.log("No items found in the feed.");
