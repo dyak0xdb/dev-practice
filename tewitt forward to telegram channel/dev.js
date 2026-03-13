@@ -29,7 +29,7 @@ async function run() {
 
 for (const tweet of newTweets) {
   const now = new Date();
-  const text = `${tweet.title}\n<a href="${tweet.link}">X</a>`;
+  const text = `${tweet.title}\n<a href="${tweet.link}">tweet</a>`;
   await bot.sendMessage(channel, text, { parse_mode: "HTML", disable_web_page_preview: true });
 }
 console.log("Number of tweets:", feed.items.length);
